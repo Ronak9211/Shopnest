@@ -122,22 +122,38 @@
   $("#closeCart").onclick = close;
   $("#overlay").onclick = close;
 
-  /* ---------- Checkout (sends the order to your WhatsApp) ---------- */
-  $("#checkoutForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!cart.length) return toast("Your cart is empty");
-    const f = new FormData(e.target);
-    let total = 0;
-    const lines = cart.map((i) => {
-      const p = PRODUCTS.find((x) => x.id === i.id);
-      total += p.price * i.qty;
-      return `• ${p.name} x${i.qty} = ${money(p.price * i.qty)}`;
-    });
-    const msg = `*New Order – ${STORE.name}*\n\n${lines.join("\n")}\n\n*Total: ${money(total)}* (Free shipping)\n\n*Name:* ${f.get("name")}\n*Phone:* ${f.get("phone")}\n*Address:* ${f.get("address")}\n*Payment:* Cash on Delivery`;
-    window.open(`https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
-    cart = []; save(); drawCart(); close(); e.target.reset();
-    toast("Order sent! We'll confirm on WhatsApp.");
+/* ---------- Checkout (Cash on Delivery) ---------- */
+$("#checkoutForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!cart.length) return toast("Your cart is empty");
+  
+  const f = new FormData(e.target);
+  let total = 0;
+  const lines = cart.map((i) => {
+    const p = PRODUCTS.find((x) => x.id === i.id);
+    total += p.price * i.qty;
+    return `• ${p.name} (x${i.qty})`;
   });
+
+  const name = f.get("name");
+
+  // Alert popup with order summary & 5-day shipping details
+  alert(
+    `Thank you, ${name}!\n\n` +
+    `Your Cash on Delivery order has been placed successfully.\n` +
+    `Total Amount: ${money(total)}\n\n` +
+    `🚚 Your order will be shipped within 5 days!`
+  );
+
+  cart = []; 
+  save(); 
+  drawCart(); 
+  close(); 
+  e.target.reset();
+  toast("Order placed! Will be shipped in 5 days. ✔");
+});
+
+  
 
   /* ---------- Hero slider ---------- */
   const slides = $("#slides"), n = slides.children.length, dots = $("#dots");
