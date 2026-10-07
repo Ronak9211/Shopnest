@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopNest – Low Prices, Free Shipping</title>
+  <meta name="description" content="Shop electronics, fashion, home and more at the lowest prices with free shipping on every order.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">🚚 FREE shipping on every order &nbsp;•&nbsp; 💸 Lowest prices guaranteed &nbsp;•&nbsp; 🔁 7-day easy returns</div>
+
+  <header class="header">
+    <div class="container header-row">
+      <a href="#" class="logo"><img src="images/logo.svg" alt="ShopNest" height="40"></a>
+      <form class="search" id="searchForm" role="search">
+        <select id="searchCat" aria-label="Category"><option value="All">All</option></select>
+        <input id="searchInput" type="search" placeholder="Search for products, brands and more" aria-label="Search">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+      <button class="cart-btn" id="openCart" aria-label="Open cart">🛒 <span>Cart</span><b id="cartCount">0</b></button>
+    </div>
+    <nav class="catnav"><div class="container" id="catNav"></div></nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="slides" id="slides">
+        <div class="slide s1"><div><h2>Big Savings on Electronics</h2><p>Earbuds, power banks &amp; more from ₹499</p><a href="#products" class="btn" data-cat="Electronics">Shop now</a></div><span>🎧</span></div>
+        <div class="slide s2"><div><h2>Fashion Under ₹599</h2><p>Trending styles, unbeatable prices</p><a href="#products" class="btn" data-cat="Fashion">Explore</a></div><span>👗</span></div>
+        <div class="slide s3"><div><h2>Make Your Home Better</h2><p>Kitchen &amp; home essentials, free delivery</p><a href="#products" class="btn" data-cat="Home">Browse</a></div><span>🏠</span></div>
+      </div>
+      <button class="arrow left" id="prev" aria-label="Previous">‹</button>
+      <button class="arrow right" id="next" aria-label="Next">›</button>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <section class="container perks">
+      <div><b>🚚 Free Shipping</b><small>On all orders</small></div>
+      <div><b>💰 Lowest Prices</b><small>Up to 75% off</small></div>
+      <div><b>🔁 Easy Returns</b><small>7-day returns</small></div>
+      <div><b>🔒 Secure Orders</b><small>Pay on delivery</small></div>
+    </section>
+
+    <section class="container" id="products">
+      <div class="toolbar">
+        <h2 id="listTitle">All Products</h2>
+        <label>Sort by
+          <select id="sort">
+            <option value="rel">Relevance</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="disc">Biggest Discount</option>
+            <option value="rate">Top Rated</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>No products found. Try a different search.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot-grid">
+      <div><h4>ShopNest</h4><p>Quality products at the lowest prices, delivered free to your door.</p></div>
+      <div><h4>Help</h4><p>Shipping &amp; Delivery<br>Returns<br>Track Order<br>Contact Us</p></div>
+      <div><h4>Contact</h4><p id="footContact">WhatsApp us anytime</p></div>
+    </div>
+    <div class="copy">© <span id="year"></span> ShopNest. All rights reserved.</div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart">
+    <div class="drawer-head"><h3>Your Cart</h3><button id="closeCart" aria-label="Close">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="row"><span>Subtotal</span><b id="subtotal">₹0</b></div>
+      <div class="row"><span>Shipping</span><b class="free">FREE</b></div>
+      <div class="row total"><span>Total</span><b id="total">₹0</b></div>
+      <form id="checkoutForm">
+        <input name="name" placeholder="Full name" required>
+        <input name="phone" placeholder="Phone number" required pattern="[0-9+ ]{8,15}">
+        <textarea name="address" placeholder="Full delivery address with PIN code" rows="2" required></textarea>
+        <button class="btn block" type="submit">Place Order on WhatsApp</button>
+      </form>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
