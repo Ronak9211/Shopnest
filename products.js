@@ -8,7 +8,7 @@ const STORE = {
 // ====== PRODUCTS (add, remove or edit freely) ======
 // emoji = used as the product picture. To use real photos, add  image: "images/phone.jpg"
 const PRODUCTS = [
-  { id: 1,  name: "Wireless Earbuds with Charging Case", category: "Electronics", price: 100,  mrp: 1999, rating: 4.3, reviews: 1284, emoji: "🎧", color: "#dbeafe" },
+  { id: 1,  name: "Wireless Earbuds with Charging Case", category: "Electronics", price: 100,  mrp: 1999, rating: 4.3, reviews: 1284, image: "images/earbuds.webp", color: "#dbeafe" },
   { id: 2,  name: "Smart Fitness Band, Heart Rate Monitor", category: "Electronics", price: 50,  mrp: 2999, rating: 4.1, reviews: 842,  emoji: "⌚", color: "#e0e7ff" },
   { id: 3,  name: "20000mAh Fast Charging Power Bank",    category: "Electronics", price: 90,  mrp: 2499, rating: 4.4, reviews: 2210, emoji: "🔋", color: "#cffafe" },
   { id: 4,  name: "Bluetooth Speaker, Waterproof",        category: "Electronics", price: 20,  mrp: 1799, rating: 4.2, reviews: 976,  emoji: "🔊", color: "#e0f2fe" },
